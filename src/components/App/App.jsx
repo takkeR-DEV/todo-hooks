@@ -5,12 +5,15 @@ import TaskList from '../TaskList/TaskList';
 import Footer from '../Footer/Footer';
 
 import './App.css';
+function counter() {
+  let maxId = 1;
+  return () => maxId++;
+}
+const maxId = counter();
 
-let maxId = 1;
 function App() {
   const [todoData, setTodoData] = useState([]);
   const [filter, setOnFilter] = useState('All');
-
   const editTask = (id) => {
     setTodoData((todoData) => {
       const index = todoData.findIndex((data) => data.id === id);
@@ -43,7 +46,7 @@ function App() {
   const addItem = (text, time) => {
     if (text) {
       const newItem = {
-        id: maxId++,
+        id: maxId(),
         task: text,
         completed: false,
         edit: false,
