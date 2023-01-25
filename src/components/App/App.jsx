@@ -5,10 +5,12 @@ import TaskList from '../TaskList/TaskList';
 import Footer from '../Footer/Footer';
 
 import './App.css';
+
 function counter() {
   let maxId = 1;
   return () => maxId++;
 }
+
 const maxId = counter();
 
 function App() {
